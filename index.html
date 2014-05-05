@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="https://googledrive.com/host/0Bxs7JX0mnodhc1MtSlFZSW1DNnc/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<title>MyCourse</title>
+</head>
+<body>
+	<div class="row">
+	<div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+		<div id="head"></div>
+		<div class="btn-group pull-right" style="margin-top: 10px; margin-bottom: 10px;">
+			<a href="index.html" class="btn btn-default">列表</a>
+			<a href="?ocpy=A" class="btn btn-default">A</a>
+			<a href="?ocpy=B" class="btn btn-default">B</a>
+			<a href="?ocpy=C" class="btn btn-default">C</a>
+			<a href="?ocpy=D" class="btn btn-default">D</a>
+			<a href="?ocpy=E" class="btn btn-default">E</a>
+			<a href="?ocpy=F" class="btn btn-default">F</a>
+			<a href="?ocpy=G" class="btn btn-default">G</a>
+			<a href="?ocpy=H" class="btn btn-default">H</a>
+			<a href="?ocpy=I" class="btn btn-default">I</a>
+			<a href="?ocpy=J" class="btn btn-default">J</a>
+		</div>
+		<div id="count" style="margin-top: 50px;"></div>
+		<div id="result" style="margin-top: 15px;"></div>
+	</div>
+	</div>
+	<!-- javascript import -->
+	<!-- DO NOT CHANGE THIS BLOCK -->
+	<script src="https://googledrive.com/host/0Bxs7JX0mnodhc1MtSlFZSW1DNnc/js/jquery-1.10.2.min.js"></script>
+	<script src="https://googledrive.com/host/0Bxs7JX0mnodhc1MtSlFZSW1DNnc/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		var Query = function(href) {
+			var query = this;
+			if (href == undefined)
+				href = window.location.href;
+			query.vars = {};
+			if (href.indexOf('?') >= 0) {
+				var hashes = href.slice(href.indexOf('?') + 1).split('&');
+				for(var i = 0; i < hashes.length; i++) {
+					var hash = hashes[i].split('=');
+					query.vars[hash[0]] = query.decodeStep(hash[1]);
+				}
+			}
+		};
+		Query.prototype = {
+			encodeStep:	function(data) {
+				return data.toString().replace(/\s/g, '+');
+			},
+			decodeStep:	function(data) {
+				return decodeURI(data).replace(/\+/g,' ');
+			},
+			toString:	function() {
+				var res = [];
+				var query = this;
+				for (var key in query.vars) {
+					var value = query.encodeStep(query.vars[key]);
+					res.push([key, value].join('='));
+				}
+				return res.join('&');
+			},
+			addArgs:	function(args) {
+				var query = this;
+				for (var key in args) {
+					if (args[key] != undefined)
+						query.vars[key] = args[key];
+				}
+				return query;
+			},
+			removeArgs:	function(keys) {
+				var query = this;
+				for (var i = 0; i < keys.length; i++) {
+					var key = keys[i];
+					delete query.vars[key];
+				}
+				return query;
+			},
+			keepArgs:	function(keys) {
+				var rev = {};
+				var query = this;
+				for (var i = 0; i < keys.length; i++) {
+					var key = keys[i];
+					rev[key] = true;
+				}
+				for (var key in query.vars) {
+					if (rev[key] != true)
+						delete query.vars[key];
+				}
+				return query;
+			},
+			getArg:		function(key) {
+				return this.vars[key];
+			},
+			getArgs:	function(keys) {
+				return this.keepArgs(keys).getAllArgs();
+			},
+			getAllArgs:	function() {
+				var res = {};
+				var query = this;
+				for (var key in query.vars) {
+					res[key] = query.vars[key];
+				}
+				return res;
+			}
+		};
+		var ocpy = {};
+		var result = '';
+		var query = (new Query()).getAllArgs();
+		$('#head').append('<h1>' + ((query['ocpy'])? ('搜尋 ' + query['ocpy'] + ' 的結果'): ('課程列表')) + '</h1>').addClass('page-header');
+		$.getJSON(
+			'https://script.google.com/macros/s/AKfycby8GNOPqYJ98dwkNh0TSAqMVEFI8ZuchTYlkVMpFgYS4IXztIng/exec',
+			'',
+			function(data) {
+				var gid = 322304699;
+				data = data[gid];
+				// 初始化
+				ocpy['total'] = [];
+				for (var i = 1; i < data.length; i++) {
+					data[i][1] = data[i][1].toString().split(',');
+					for (var j in data[i][1]) {
+						var tmp = data[i][1][j];
+						if (ocpy[tmp] == undefined)
+							ocpy[tmp] = [];
+						ocpy[tmp].push(i);
+					}
+					ocpy['total'].push(i);
+				}
+				result = data;
+				// 查詢
+				var db;
+				if (query['ocpy']) {
+					db = ocpy[query['ocpy']];
+					if (db == undefined) db = [];
+				}
+				else db = ocpy['total'];
+				$('#count').append('<h3>總共 ' + db.length + ' 筆</h3>');
+				var res = '<ul class="list-group">';
+				for (var i = 0; i < db.length; i++) {
+					res += '<li class="list-group-item">' + result[db[i]][0] + '</li>';
+				}
+				res += '</ul>';
+				$('#result').append(res);
+			});
+	</script>
+	<!-- DO NOT CHANGE THIS BLOCK -->
+</body>
+</html>
