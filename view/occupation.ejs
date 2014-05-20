@@ -1,7 +1,29 @@
 <html>
 <head>
-	<title></title>
+	<title><%= title %></title>
+	<link rel="stylesheet" href="/public/css/">
 </head>
 <body>
+	<h1><%= occupation_name %></h1>
+	<h2>Tasks</h2>
+	<ul>
+		<% for (var i = 0; i < task_list.length; i++) { %>
+			<li><%= task_list[i] %></li>
+		<% } %>
+	</ul>
+	<h2>Primitives</h2>
+	<ul>
+		<% for (var i = 0; i < prim_list.length; i++) { %>
+			<li><%= prim_list[i] %></li>
+		<% } %>
+	</ul>
+	<ul>
+		<% for (var i = 0; i < class_list.length; i++) { %>
+			<li id="<%= class_list[i].prims.join(' ') %>">
+				<%= class_list[i].name %>
+			</li>
+		<% } %>
+	</ul>
+	<script type="text/javascript" src="/public/js/"></script>
 </body>
 </html>
