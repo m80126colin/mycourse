@@ -1,10 +1,24 @@
-var db		= require('../model');
+var db		= require('../model'),
+	API		= require('./api');
 
-module.exports.getOccupation = function(req, res) {
-	var oid			= req.params('oid');
-	var occupation	= db.getOccupation(oid);
+module.exports.api = API;
+
+module.exports.renderIndex = function(req, res) {
+	;
+}
+
+module.exports.renderOccupation = function(req, res) {
+	var oid = req.param('oid');
+	console.log(oid);
+	db.getOccupation(function (occupation) {
+		console.log(occupation);
+		res.json(occupation);
+	});
+	/*
 	var args		= {
 		'title': 'Search ' + occupation.name,
 	}
 	res.render('occupation', args);
+	*/
+	
 }
