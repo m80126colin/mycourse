@@ -4,7 +4,7 @@ var db		= require('../model'),
 module.exports.api = API;
 
 module.exports.renderIndex = function(req, res) {
-	;
+	res.render('index');
 }
 
 module.exports.renderOccupation = function(req, res) {
