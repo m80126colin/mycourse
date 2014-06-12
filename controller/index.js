@@ -11,6 +11,10 @@ module.exports.renderCreate = function(req, res) {
 	res.render('create');
 }
 
+module.exports.renderList = function(req, res) {
+	res.render('list');
+}
+
 module.exports.renderOccupation = function(req, res) {
 	var oid = req.param('oid');
 	console.log(oid);
