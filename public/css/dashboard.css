@@ -95,26 +95,24 @@ body {
   border-radius: 0%;
 }
 
-.course-list{
+.course-box{
   background: #f0f0f0;
-  border: 2px solid #999;
-  width: 680px;
+  border: 2px solid #999;  
   height: 160px;  
 }
 
 .navbar-brand{
-  font-size: 25px;
-  /*text-decoration: underline;*/
+  font-size: 25px;  
 }
 
 /*.navbar-inverse{
   background-color: #428bca;
 }*/
 
-/*h2.sub-header{
-  width: 900px;
-}*/
-.btn{
-  /*border-radius: 20%;*/
-  /*margin-right: 10px;*/
+.nav-margin-top{
+  margin-top: 20px
+
+}
+.nav-background{
+  background: #f0f0f0;
 }
