@@ -26,6 +26,8 @@ app.use('/public', express.static(__dirname + '/public'));
  *
  */
 app.get('/', controller.renderIndex);
+app.get('/list/occupation', controller.renderList);
+app.get('/create/occupation', controller.renderCreate);
 app.get('/occupation/:oid', controller.renderOccupation);
 /*
  *

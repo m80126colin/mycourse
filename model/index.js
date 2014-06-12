@@ -17,7 +17,6 @@ var occu		= 'OccupationList';
 			* prims
 */
 module.exports.getOccupation = function(oid, callback) {
-	console.log(url);
 	mongoClient.connect(url, function (e, db) {
 		if (e) throw e;
 		db.collection('OccupationList', function (e, col) {
@@ -33,5 +32,33 @@ module.exports.getOccupation = function(oid, callback) {
 			callback(data);
 		});
 */
+	});
+}
+
+module.exports.getPrimitive = function(callback) {
+	mongoClient.connect(url, function (e, db) {
+		if (e) throw e;
+		db.collection('PrimitiveList', function (e, col) {
+			col
+			.find()
+			.toArray(function (e, data) {
+				callback(data);
+				db.close();
+			})
+		});
+	});
+}
+
+module.exports.getCourseName = function(callback) {
+	mongoClient.connect(url, function (e, db) {
+		if (e) throw e;
+		db.collection('CourseName', function (e, col) {
+			col
+			.find()
+			.toArray(function (e, data) {
+				callback(data);
+				db.close();
+			})
+		});
 	});
 }

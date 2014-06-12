@@ -15,6 +15,16 @@ addButton.on('click', function(){
   $(tmpl).prependTo(mainUl).addClass('is-editing').find('input').focus();
 });
 
+$('.primitive-class').click(function (e) {
+  e.preventDefault();
+  var target = 'prim' + $(this).text();
+  $('table>tbody>tr').hide();
+  $('tr.' + target).show();
+  $('primname').text($(this).text());
+});
+$($('.primitive-class')[0]).click();
+
+
 // 按 Enter 鍵時完成編輯並存檔
 //
 mainUl.on('keyup', 'input', function(e){
