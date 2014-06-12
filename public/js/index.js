@@ -7,13 +7,19 @@ var tmpl = '<li><input type="text"><span></span></li>',
     placeholder = $('#placeholder'),  // 三個 <ul> 的容器
     mainUl = $('.main'),              // main <ul>
     deleteUl = $('.delete'),          // delete <ul>
-    doneUl = $('.done');              // done <ul>   
-
+    doneUl = $('.done'),              // done <ul>   
+    jobTag = $('.job-tag .btn');
+    button = $('.btn');
 // 點擊按鈕時，插入新項目
 //
 addButton.on('click', function(){
   $(tmpl).prependTo(mainUl).addClass('is-editing').find('input').focus();
 });
+jobTag.on('click', function(){
+
+  $(this).removeClass('btn-success').addClass('btn-default');
+  // console.log($(this).find('btn-success'));  
+})
 
 // 按 Enter 鍵時完成編輯並存檔
 //
