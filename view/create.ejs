@@ -28,55 +28,58 @@
   <body>
     <% include header %>
     <div class="container-thin">
-      <h3><small>STEP1 第一步</small></h3>
-      <h2 class="h2-margin"><span class="label label-danger">職務</span> 建立職務名稱</h2>
-      <form role="form">        
-        <input class="form-control" id="occupation_name" type="text" placeholder="請輸入名稱">
-      </form>
-      
-      <h3><small>STEP2 第二步</small></h3>
-      <h2 class="h2-margin"><span class="label label-danger">標籤</span> 選擇職務分類</h2>
-      <div class="job-tag">
-        <button type="button" class="btn btn-success btn-bottom">電腦硬體</button>
-        <button type="button" class="btn btn-success btn-bottom">硬體工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">軟體工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">韌體工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">演算法工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">BIOS工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">電玩程式工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">網站工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">系統工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">資料庫工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">電子商務系統工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">MIS工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">資安工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">APP工程師</button>
-        <button type="button" class="btn btn-success btn-bottom">多媒體程式工程師</button>
+      <br>
+      <div>
+        <h3><small>STEP1 第一步</small></h3>
+        <h2 class="h2-margin"><span class="label label-danger">職務</span> 建立職務名稱</h2>
+        <form role="form">        
+          <input class="form-control" id="occupation_name" type="text" placeholder="請輸入名稱">
+        </form>        
       </div>
-
-      <h3><small>STEP3 第三步</small></h3>
-      <h2 class="h2-margin">
-        <span class="label label-danger">項目</span> 建立工作項目、內容
-      </h2>
-      <button type="button" class="btn btn-default pull-right btn-bottom">新增項目</button>
-      <div class="task-list">
-        <input class="form-control" id="occupation_name" type="text" placeholder="請輸入工作項目">
-        <textarea class="form-control" rows="5" placeholder="工作內容"></textarea>        
+      <div>
+        <h3><small>STEP2 第二步</small></h3>
+        <h2 class="h2-margin"><span class="label label-danger">標籤</span> 選擇職務分類</h2>
+        <div class="job-tag">
+          <button type="button" class="btn btn-success btn-bottom">電腦硬體</button>
+          <button type="button" class="btn btn-success btn-bottom">硬體工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">軟體工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">韌體工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">演算法工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">BIOS工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">電玩程式工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">網站工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">系統工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">資料庫工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">電子商務系統工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">MIS工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">資安工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">APP工程師</button>
+          <button type="button" class="btn btn-success btn-bottom">多媒體程式工程師</button>
+        </div>      
       </div>
-      <button type="button" class="btn btn-default btn-top pull-right">刪除</button>
-
-      <h3><small>STEP4 第四步</small></h3>
-      <h2 class="h2-margin">
-        <span class="label label-danger">課程</span> 選擇相關課程
-      </h2>
-        <button type="button" class="btn btn-warning center-block"><a href="/">按此進入</a></button>
-
-
-
-
+      <div>
+        <h3><small>STEP3 第三步</small></h3>
+        <h2 class="h2-margin">
+          <span class="label label-danger">項目</span> 建立工作項目、內容
+        </h2>
+        <button type="button" id ="add" class="btn btn-default pull-right btn-bottom">新增項目</button>
+        <div class="task-list">
+          <input class="form-control" id="occupation_name" type="text" placeholder="請輸入工作項目">
+          <textarea class="form-control textarea-bottom" rows="5" placeholder="工作內容"></textarea>        
+        </div>
+        <button type="button" id="remove" class="btn btn-default pull-right">刪除</button>        
+      </div>
+      <div>
+        <h3><small>STEP4 第四步</small></h3>
+        <h2 class="h2-margin">
+          <span class="label label-danger">課程</span> 選擇相關課程
+        </h2>
+        <p class= "text-center">
+          <a class="btn btn-lg btn-warning" href="/" role="button">按此進入</a>                
+        </p>        
+      </div>
     </div>
-
-   
+         
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
