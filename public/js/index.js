@@ -7,7 +7,7 @@ var tmpl = '<li><input type="text"><span></span></li>',
     placeholder = $('#placeholder'),  // 三個 <ul> 的容器
     mainUl = $('.main'),              // main <ul>
     deleteUl = $('.delete'),          // delete <ul>
-    doneUl = $('.done');              // done <ul>
+    doneUl = $('.done');              // done <ul>   
 
 // 點擊按鈕時，插入新項目
 //
