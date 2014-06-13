@@ -15,6 +15,7 @@ addButton.on('click', function(){
   $(tmpl).prependTo(mainUl).addClass('is-editing').find('input').focus();
 });
 
+// custom
 $('.primitive-class').click(function (e) {
   e.preventDefault();
   var target = 'prim' + $(this).text();
@@ -23,6 +24,14 @@ $('.primitive-class').click(function (e) {
   $('primname').text($(this).text());
 });
 $($('.primitive-class')[0]).click();
+/*
+$('#courselist').sortable({
+  helper: function(e, ui) {
+    return $('<li>' + ui.item.text() + '</li>')
+  }
+});
+*/
+
 
 
 // 按 Enter 鍵時完成編輯並存檔
