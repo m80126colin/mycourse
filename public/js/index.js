@@ -1,7 +1,7 @@
 (function(){
 
 // 插入 <input> 之 <textarea> 樣板
-var tmp = '<input class="form-control" id="occupation_name" type="text" placeholder="請輸入工作項目"><textarea class="form-control textarea-bottom" rows="5" placeholder="工作內容"></textarea>',
+var tmp = '<div><input class="form-control" id="occupation_name" type="text" placeholder="請輸入工作項目"><textarea class="form-control textarea-bottom" rows="5" placeholder="工作內容"></textarea></div>',
     addButton = $('#add'),
     removeButton = $('#remove'),
     connected = $('.connected'),          
@@ -10,8 +10,12 @@ var tmp = '<input class="form-control" id="occupation_name" type="text" placehol
 
 // 點擊新增按鈕時，插入新項目
 //
-addButton.on('click', function(){
-  $(tmp).prependTo(taskList);
+addButton.click(function(){
+  taskList.prepend(tmp);
+});
+
+removeButton.click(function() {
+  $('div::first-child', taskList).remove();
 });
 
 // custom
@@ -31,10 +35,28 @@ $('#courselist').sortable({
 });
 */
 
+/*
 jobTag.on('click', function(){
   $(this).removeClass('btn-success').addClass('btn-default');
   // console.log($(this).find('btn-success'));  
 })
+*/
+
+jobTag
+.click(function() {
+  if ($(this).hasClass('select')) {
+    $(this)
+    .removeClass('btn-success')
+    .addClass('btn-default')
+    .removeClass('select');
+  }
+  else {
+    $(this)
+    .removeClass('btn-default')
+    .addClass('btn-success')
+    .addClass('select');
+  }
+});
 
 // 按 Enter 鍵時完成編輯並存檔
 //
