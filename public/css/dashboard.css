@@ -5,6 +5,7 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
+  font-family: '微軟正黑體';
 }
 
 
@@ -96,17 +97,17 @@ body {
 }
 
 .course-box{
-  background: #f0f0f0;
+  background: #eee;
   border: 2px solid #999;  
   height: 160px;  
 }
 
 .navbar-brand{
-  font-size: 25px;  
+  font-size: 30px;  
 }
 
 /*.navbar-inverse{
-  background-color: #428bca;
+  background-color: #323a4;
 }*/
 
 .nav-margin-top{
@@ -115,4 +116,53 @@ body {
 }
 .nav-background{
   background: #f0f0f0;
+}
+.nav{
+  font-size: 20px;
+}
+
+.container-thin {
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container-thin {
+    width: 650px;
+  }
+}
+@media (min-width: 992px) {
+  .container-thin {
+    width: 870px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-thin {
+    width: 931px;
+  }
+}
+
+.h2-margin{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-bottom{
+  margin-bottom: 10px;
+}
+
+.btn-top{
+  margin-top: 10px;
+}
+
+.textarea-bottom{
+  margin-bottom: 5px;
+}
+
+.list-head{
+  background: #eee;
+}
+.a-black{
+  color: #333;
 }
